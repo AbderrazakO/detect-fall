@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+:root {
+  --main-color: #f8f9fa;
+  --text-color: #463f3a;
+  --red-primary-color: #d90429;
+  --red-secondary-color: #ffa69e;
+  --green-primary-color: #007200;
+  --green-secondary-color: #80ed99;
+  --blue--primary-color: #5c66ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+#root,
+body,
+.App {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn {
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+          box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--main-color);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #fb8332;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.btn:hover {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.btn:active {
+  background-color: #c85000;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+          box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+$poppins-font: 'Poppins', sans-serif;
+:root {
+  // Colors
+  --main-color: #f8f9fa;
+  --text-color: #463f3a;
+  --red-primary-color: #d90429;
+  --red-secondary-color: #ffa69e;
+  --green-primary-color: #007200;
+  --green-secondary-color: #80ed99;
+  --blue--primary-color: #5c66ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+#root,
+body,
+.App {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: var(--main-color);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  transition: all 250ms;
+  user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+
+  &:hover,
+  &:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    transform: translateY(0);
+  }
+}
