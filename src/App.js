@@ -1,4 +1,15 @@
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react'
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts'
+
 import './index.css'
 
 const App = ({ frequency = 10 }) => {
@@ -81,14 +92,60 @@ const App = ({ frequency = 10 }) => {
       data.teta = oneDecimalNumber(
         calcAngle(sensorState.x, sensorState.y, sensorState.z)
       )
+
+      data.t = handleAcceleration.current.length
       if (data.teta > 55 && data.a > 19.6) {
         fallStatus.current = 'Fall Detected'
       }
 
       handleAcceleration.current.push(data)
 
+      const chart = () => {
+        let chartData
+        if (handleAcceleration.current.length <= 20) {
+          chartData = handleAcceleration.current
+        } else {
+          chartData = handleAcceleration.current.slice(
+            handleAcceleration.current.length - 21,
+            handleAcceleration.current.length - 1
+          )
+        }
+        return (
+          <>
+            <ResponsiveContainer width='80%' height={250}>
+              <LineChart
+                className='chart'
+                data={chartData}
+                margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis dataKey='t' />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type='monotone' dataKey='a' stroke='#8884d8' />
+              </LineChart>
+            </ResponsiveContainer>
+            <ResponsiveContainer width='80%' height={250}>
+              <LineChart
+                className='chart'
+                data={chartData}
+                margin={{ top: 5, right: 5, left: 5, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis dataKey='t' />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type='monotone' dataKey='teta' stroke='#82ca9d' />
+              </LineChart>
+            </ResponsiveContainer>
+          </>
+        )
+      }
+
       return (
-        <div className='App'>
+        <>
           <div className='control-aria'>
             <button
               className='btn'
@@ -108,29 +165,26 @@ const App = ({ frequency = 10 }) => {
             </button>
           </div>
           <div className='live-data'>
-            <div className='row-1'>
-              <div>{`x : ${sensorState.x}`}</div>
-              <div>{`y : ${sensorState.y}`}</div>
-              <div>{`z : ${sensorState.z}`}</div>
+            <div className='row'>
+              <div className='item'>{`x : ${oneDecimalNumber(
+                sensorState.x
+              )}`}</div>
+              <div className='item'>{`y : ${oneDecimalNumber(
+                sensorState.y
+              )}`}</div>
+              <div className='item'>{`z : ${oneDecimalNumber(
+                sensorState.z
+              )}`}</div>
             </div>
-            <div className='row-1'>{`Fall Status : ${fallStatus.current}`}</div>
-            <div className='row-1'>
-              {handleAcceleration.current.map(({ a, teta }) => {
-                return (
-                  <div>
-                    <div>{`A : ${a}`}</div>
-                    <div>{`O : ${teta}`}</div>
-                  </div>
-                )
-              })}
-            </div>
+            <div className='row'>{`Fall Status : ${fallStatus.current}`}</div>
+            <div className='draw'>{chart()}</div>
           </div>
-        </div>
+        </>
       )
     }
 
     return (
-      <div className='App'>
+      <>
         <div className='control-aria'>
           <button
             className='btn'
@@ -150,7 +204,7 @@ const App = ({ frequency = 10 }) => {
           </button>
         </div>
         <div>{sensorState}</div>
-      </div>
+      </>
     )
   }
 
@@ -162,7 +216,7 @@ const App = ({ frequency = 10 }) => {
 const getDeviceType = (script) => {
   const ua = navigator.userAgent
   if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-    return 'Sorry our service is not available in Tablet :('
+    return 'Sorry our service is not available for Tablet :('
   }
   if (
     /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
@@ -171,7 +225,7 @@ const getDeviceType = (script) => {
   ) {
     return script || 'You are using a mobile'
   }
-  return 'Sorry our service is not available in Laptop :('
+  return 'Sorry our service is not available for Laptop :('
 }
 
 //
