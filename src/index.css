@@ -152,19 +152,31 @@ body {
 .live-data .row .item {
   padding: 0.3rem;
   width: 90px;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 500;
   border-radius: 10px;
-  -webkit-box-shadow: #00000029 0px 1px 4px;
-          box-shadow: #00000029 0px 1px 4px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.live-data .row .chart {
-  width: 90%;
+.live-data .row .false {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  color: #007200;
+  border: 1px solid #007200;
+  background-color: #80ed99;
+}
+
+.live-data .row .true {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  color: #d90429;
+  border: 1px solid #d90429;
+  background-color: #ffa69e;
 }
 
 .live-data .draw {
-  width: 100%;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -178,6 +190,10 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.live-data .draw .chart {
+  width: 90%;
 }
 
 @media (min-width: 720px) {

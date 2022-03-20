@@ -23,7 +23,7 @@ const App = ({ frequency = 10 }) => {
   const handleAcceleration = useRef([])
 
   //
-  const fallStatus = useRef('')
+  const fallStatus = useRef(false)
 
   // Define Our Accelerometer Object And memories it to avoid Fill the memories
   const accelerometer = useMemo(() => {
@@ -95,7 +95,7 @@ const App = ({ frequency = 10 }) => {
 
       data.t = handleAcceleration.current.length
       if (data.teta > 55 && data.a > 19.6) {
-        fallStatus.current = 'Fall Detected'
+        fallStatus.current = true
       }
 
       handleAcceleration.current.push(data)
@@ -112,7 +112,7 @@ const App = ({ frequency = 10 }) => {
         }
         return (
           <>
-            <ResponsiveContainer width='80%' height={250}>
+            <ResponsiveContainer width='90%' height={250}>
               <LineChart
                 className='chart'
                 data={chartData}
@@ -126,7 +126,7 @@ const App = ({ frequency = 10 }) => {
                 <Line type='monotone' dataKey='a' stroke='#8884d8' />
               </LineChart>
             </ResponsiveContainer>
-            <ResponsiveContainer width='80%' height={250}>
+            <ResponsiveContainer width='90%' height={250}>
               <LineChart
                 className='chart'
                 data={chartData}
@@ -163,6 +163,17 @@ const App = ({ frequency = 10 }) => {
             >
               Stop
             </button>
+            <button
+              className='btn'
+              onClick={() => {
+                setIsButtonActive(false)
+                setSensorState('')
+                handleAcceleration.current = []
+                fallStatus.current = false
+              }}
+            >
+              Reset
+            </button>
           </div>
           <div className='live-data'>
             <div className='row'>
@@ -176,7 +187,11 @@ const App = ({ frequency = 10 }) => {
                 sensorState.z
               )}`}</div>
             </div>
-            <div className='row'>{`Fall Status : ${fallStatus.current}`}</div>
+            <div className='row'>
+              <div
+                className={`${fallStatus.current}`}
+              >{`Device is falling : ${fallStatus.current}`}</div>
+            </div>
             <div className='draw'>{chart()}</div>
           </div>
         </>

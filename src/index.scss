@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
 $poppins-font: 'Poppins', sans-serif;
+$red-color: #d90429;
+$red-color-2: #ffa69e;
+$green-color: #007200;
+$green-color-2: #80ed99;
 :root {
   // Colors
   --main-color: #f8f9fa;
@@ -101,23 +105,37 @@ body {
     .item {
       padding: 0.3rem;
       width: 90px;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 500;
       border-radius: 10px;
-      box-shadow: #00000029 0px 1px 4px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
 
-    .chart {
-      width: 90%;
+    .false {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      color: $green-color;
+      border: 1px solid $green-color;
+      background-color: $green-color-2;
+    }
+    .true {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      color: $red-color;
+      border: 1px solid $red-color;
+      background-color: $red-color-2;
     }
   }
 
   .draw {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    .chart {
+      width: 90%;
+    }
   }
 }
 
