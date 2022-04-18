@@ -170,3 +170,6 @@ useEffect(() => {
 ### Fall Detect
 
 <a href="https://www.hindawi.com/journals/jam/2014/896030/">Fall-Detection Algorithm</a>
+![Capture](https://user-images.githubusercontent.com/72947119/163849324-3cd7f1b5-4223-4721-91d5-b0baf5cfa19a.PNG)
+![00](https://user-images.githubusercontent.com/72947119/163849344-dbf56e56-cebd-47c6-8fab-45f767ca21cc.PNG)
+
