@@ -70,6 +70,7 @@ The code below work also for :
 - Gyroscope
 - LinearAccelerationSensor
 - Magnetometer
+  \
   You need hust to change Accelerometer keyword to sensor name that you want
 
 #### Vanilla JS
@@ -167,3 +168,5 @@ useEffect(() => {
 ```
 
 ### Fall Detect
+
+<a href="https://www.hindawi.com/journals/jam/2014/896030/">Fall-Detection Algorithm</a>
