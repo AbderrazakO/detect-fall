@@ -78,7 +78,7 @@ The code below work also for :
 You can get acceleration values using the code below
 
 ```tsx
-let acl = new Accelerometer({ frequency: 60 })
+let acl = new window.Accelerometer({ frequency: 60 })
 acl.addEventListener('reading', () => {
   console.log('Acceleration along the X-axis ' + acl.x)
   console.log('Acceleration along the Y-axis ' + acl.y)
@@ -87,6 +87,7 @@ acl.addEventListener('reading', () => {
 
 acl.start()
 ```
+>> Notice ...
 
 #### React JS
 
