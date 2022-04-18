@@ -8,28 +8,35 @@ There are two types of acceleration forces:
 - Static forces are forces that are constantly being applied to the object (such as friction or gravity).
 - Dynamic forces are “moving” forces applied to the object at various rates (such as vibration, or the force exerted on a ball).
 
+\
+\
+In this project we build a fall-detection systems, that we can use in our smart phone to resolve the problem of falls among the elderly.
+\
+Technologies used :
+
 - ReactJs
 - Sass
 - Web APIs
+- Recharts
 
 ## Setup
 
-Please note: this project use the [pnpm](https://pnpm.io/) package manager. To install it, run:
+Clone the project
 
 ```bash
-npm install -g pnpm
+git clone https://github.com/AbderrazakO/detect-fall.git
 ```
 
 Install dependencies:
 
 ```bash
-pnpm i
+npm i
 ```
 
-Start the dev server:
+Start the server:
 
 ```bash
-npm run dev
+npm start
 ```
 
 ## Development
