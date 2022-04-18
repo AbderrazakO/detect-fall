@@ -11,11 +11,11 @@ There are two types of acceleration forces:
 ## Sensor Web APIs
 
 The Sensor API is a set of interfaces built on a common design that exposes device sensors to the web platform in a consistent manner, and the accelerometer API is one of them .
-(<-- two spaces)
+**
 The Generic Sensor API specification defines a sensor interface, but you never use it as a web developer. Instead, use one of its subclasses to get a particular type of sensor data. For example, the accelerometer interface returns the device's acceleration along all three axes when reading. The
-(<-- two spaces)
+**
 sensor may or may not correspond exactly to the physical device sensor. For example, a gyroscope interface corresponds exactly to a physical device interface. Alternatively, the AbsoluteOrientationSensor interface provides algorithmically aggregated information from two or more device sensors. These sensor types are called low level and high level. The latter type of sensor is also called a fusion sensor (or virtual or synthetic sensor).
-(<-- two spaces)
+\_\_
 | First Header | Second Header |
 | ------------- | ------------- |
 | AbsoluteOrientationSensor | Describes the device's physical orientation in relation to the Earth's reference coordinate system. |
