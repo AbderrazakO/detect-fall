@@ -87,7 +87,7 @@ acl.addEventListener('reading', () => {
 
 acl.start()
 ```
->> Notice that you should use window keyword to define new sensor object or you gonna get an error.
+>> <span style="color:#e63946">Notice that you should use window keyword to define new sensor object or you gonna get an error.</span> 
 
 #### React JS
 
