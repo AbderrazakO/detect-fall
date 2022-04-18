@@ -98,11 +98,11 @@ Then were gonna create a new accelerometer object and memoized it using useMemo 
 
 ```tsx
 const accelerometer = useMemo(() => {
-  return new window.Accelerometer({ frequency })
+  return new window.Accelerometer({ frequency }) // Notice that the frequency values is between 0 and 60 hz
 }, [frequency])
 ```
 
-Catch Acceleration Values
+To avoid unnecessary renders we use useCallback in which we set our logic to handle accelerometer status or acceleration values after an eventListener or to cleanup the eventListener
 
 ```tsx
 const Accelerometer = useCallback(
@@ -142,17 +142,17 @@ const Accelerometer = useCallback(
 )
 ```
 
-Catch Acceleration Values
+And the last thing we need to add a side effect
 
 ```tsx
 useEffect(() => {
   if (isButtonActive) {
-    Accelerometer(false)
+    Accelerometer(false) // Add Event
   }
 
   return () => {
     if (isButtonActive) {
-      Accelerometer(true)
+      Accelerometer(true) // Remove Event
     }
   }
 }, [isButtonActive, Accelerometer])
