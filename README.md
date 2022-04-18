@@ -81,7 +81,10 @@ acl.start()
 
 #### React JS
 
-Catch Acceleration Values
+First of all we gonna need two variable :
+
+- One to handle Button status
+- The second to handle sensor status or acceleration values
 
 ```tsx
 // Handle Button Status To start or Stop Fetching Data
@@ -91,28 +94,12 @@ const [isButtonActive, setIsButtonActive] = useState(false)
 const [sensorState, setSensorState] = useState('')
 ```
 
-Catch Acceleration Values
+Then were gonna create a new accelerometer object and memoized it using useMemo to avoid create new object after every re-rendering
 
 ```tsx
 const accelerometer = useMemo(() => {
   return new window.Accelerometer({ frequency })
 }, [frequency])
-```
-
-Catch Acceleration Values
-
-```tsx
-useEffect(() => {
-  if (isButtonActive) {
-    Accelerometer(false)
-  }
-
-  return () => {
-    if (isButtonActive) {
-      Accelerometer(true)
-    }
-  }
-}, [isButtonActive, Accelerometer])
 ```
 
 Catch Acceleration Values
@@ -153,4 +140,20 @@ const Accelerometer = useCallback(
   },
   [accelerometer]
 )
+```
+
+Catch Acceleration Values
+
+```tsx
+useEffect(() => {
+  if (isButtonActive) {
+    Accelerometer(false)
+  }
+
+  return () => {
+    if (isButtonActive) {
+      Accelerometer(true)
+    }
+  }
+}, [isButtonActive, Accelerometer])
 ```
