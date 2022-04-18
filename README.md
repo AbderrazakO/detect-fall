@@ -9,7 +9,6 @@ There are two types of acceleration forces:
 - Dynamic forces are “moving” forces applied to the object at various rates (such as vibration, or the force exerted on a ball).
 
 \
-\
 In this project we build a fall-detection systems, that we can use in our smart phone to resolve the problem of falls among the elderly.
 \
 Technologies used :
@@ -48,18 +47,20 @@ The Sensor API is a set of interfaces built on a common design that exposes devi
 The Generic Sensor API specification defines a sensor interface, but you never use it as a web developer. Instead, use one of its subclasses to get a particular type of sensor data. For example, the accelerometer interface returns the device's acceleration along all three axes when reading.
 \
  The sensor may or may not correspond exactly to the physical device sensor. For example, a gyroscope interface corresponds exactly to a physical device interface. Alternatively, the AbsoluteOrientationSensor interface provides algorithmically aggregated information from two or more device sensors. These sensor types are called low level and high level. The latter type of sensor is also called a fusion sensor (or virtual or synthetic sensor).
-
-| Sensor                    | Utilitie                                                                                                                                                                          |
+\
+For more information :
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs">MDN Sensor Web API</a>
+| Sensor | Utilitie |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AbsoluteOrientationSensor | Describes the device's physical orientation in relation to the Earth's reference coordinate system.                                                                               |
-| Accelerometer             | Provides the acceleration applied to the device along all three axes.                                                                                                             |
-| AmbientLightSensor        | Returns the current light level or illuminance of the ambient light around the hosting device.                                                                                    |
-| GravitySensor             | Provides the gravity applied to the device along all three axes.                                                                                                                  |
-| Gyroscope                 | Provides the angular velocity of the device along all three axes.                                                                                                                 |
-| LinearAccelerationSensor  | Provides the acceleration applied to the device along all three axes, but without the contribution of gravity.                                                                    |
-| Magnetometer              | Provides information about the magnetic field as detected by the device's primary magnetometer sensor.                                                                            |
-| OrientationSensor         | The base class for the AbsoluteOrientationSensor. This interface cannot be used directly, instead it provides properties and methods accessed by interfaces that inherit from it. |
-| RelativeOrientationSensor | Describes the device's physical orientation without regard to the Earth's reference coordinate system.                                                                            |
+| AbsoluteOrientationSensor | Describes the device's physical orientation in relation to the Earth's reference coordinate system. |
+| Accelerometer | Provides the acceleration applied to the device along all three axes. |
+| AmbientLightSensor | Returns the current light level or illuminance of the ambient light around the hosting device. |
+| GravitySensor | Provides the gravity applied to the device along all three axes. |
+| Gyroscope | Provides the angular velocity of the device along all three axes. |
+| LinearAccelerationSensor | Provides the acceleration applied to the device along all three axes, but without the contribution of gravity. |
+| Magnetometer | Provides information about the magnetic field as detected by the device's primary magnetometer sensor. |
+| OrientationSensor | The base class for the AbsoluteOrientationSensor. This interface cannot be used directly, instead it provides properties and methods accessed by interfaces that inherit from it. |
+| RelativeOrientationSensor | Describes the device's physical orientation without regard to the Earth's reference coordinate system. |
 
 ### Code
 
