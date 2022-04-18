@@ -62,7 +62,15 @@ For more information :
 | OrientationSensor | The base class for the AbsoluteOrientationSensor. This interface cannot be used directly, instead it provides properties and methods accessed by interfaces that inherit from it. |
 | RelativeOrientationSensor | Describes the device's physical orientation without regard to the Earth's reference coordinate system. |
 
-### Code
+### Using Accelerometer Sensor
+
+The code below work also for :
+
+- GravitySensor
+- Gyroscope
+- LinearAccelerationSensor
+- Magnetometer
+  You need hust to change Accelerometer keyword to sensor name that you want
 
 #### Vanilla JS
 
@@ -157,3 +165,5 @@ useEffect(() => {
   }
 }, [isButtonActive, Accelerometer])
 ```
+
+### Fall Detect
