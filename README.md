@@ -71,7 +71,7 @@ The code below work also for :
 - LinearAccelerationSensor
 - Magnetometer
   \
-  You need hust to change Accelerometer keyword to sensor name that you want
+  You need just to change Accelerometer keyword to sensor name that you want
 
 #### Vanilla JS
 
