@@ -66,6 +66,8 @@ For more information :
 
 #### Vanilla JS
 
+You can get acceleration values using the code below
+
 ```tsx
 let acl = new Accelerometer({ frequency: 60 })
 acl.addEventListener('reading', () => {
@@ -79,16 +81,76 @@ acl.start()
 
 #### React JS
 
-```tsx
-import Link from 'next/link'
-import { usePaths } from '@/lib/paths'
+Catch Acceleration Values
 
-export const ProductLinkComponent = () => {
-  const paths = usePaths()
-  return (
-    <Link href={paths.products._slug(line?.variant?.product?.slug).$url()}>
-      <a>Product link</a>
-    </Link>
-  )
-}
+```tsx
+// Handle Button Status To start or Stop Fetching Data
+const [isButtonActive, setIsButtonActive] = useState(false)
+
+// State to Handle instant acceleration values and also to re-rendering the component with useEffect
+const [sensorState, setSensorState] = useState('')
+```
+
+Catch Acceleration Values
+
+```tsx
+const accelerometer = useMemo(() => {
+  return new window.Accelerometer({ frequency })
+}, [frequency])
+```
+
+Catch Acceleration Values
+
+```tsx
+useEffect(() => {
+  if (isButtonActive) {
+    Accelerometer(false)
+  }
+
+  return () => {
+    if (isButtonActive) {
+      Accelerometer(true)
+    }
+  }
+}, [isButtonActive, Accelerometer])
+```
+
+Catch Acceleration Values
+
+```tsx
+const Accelerometer = useCallback(
+  // Catch Acceleration Values
+  (clean) => {
+    if (!clean) {
+      accelerometer.addEventListener('error', (event) => {
+        // Handle runtime errors.
+        if (event.error.name === 'NotAllowedError') {
+          setSensorState('Access Denied')
+        } else if (event.error.name === 'NotReadableError') {
+          setSensorState('Cannot connect to the sensor.')
+        }
+      })
+      accelerometer.addEventListener('reading', (event) => {
+        setSensorState({
+          x: event.target.x,
+          y: event.target.y,
+          z: event.target.z,
+        })
+      })
+      accelerometer.start()
+    }
+
+    // Clean the memorie
+    else {
+      accelerometer.removeEventListener('error', (event) => {
+        // Handle runtime errors.
+      })
+      accelerometer.removeEventListener('reading', (event) => {
+        // Handle Data
+      })
+      accelerometer.stop()
+    }
+  },
+  [accelerometer]
+)
 ```
