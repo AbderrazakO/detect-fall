@@ -87,7 +87,7 @@ acl.addEventListener('reading', () => {
 
 acl.start()
 ```
->> Notice ...
+>> Notice that you should use window keyword to define new sensor object or you gonna get an error.
 
 #### React JS
 
