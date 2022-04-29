@@ -173,13 +173,8 @@ To detect a fall,i used a <a href="https://www.hindawi.com/journals/jam/2014/896
 
 ![Capture](https://user-images.githubusercontent.com/72947119/163849324-3cd7f1b5-4223-4721-91d5-b0baf5cfa19a.PNG)
 \
-And for that we define a variable called handleAcceleration where we gonna store all previous value of Acceleration and Angle .
+so we define two functions to calculate the Acceleration and Angle :
 ```tsx
- const handleAcceleration = useRef([])
-```
-and two functions to calculate the Acceleration and Angle .
-```tsx
- //
 const calcAcceleration = (valueOne, valueTwo, valueThree) => {
   return Math.sqrt(valueOne ** 2 + valueTwo ** 2 + valueThree ** 2)
 }
@@ -193,6 +188,20 @@ const calcAngle = (valueOne, valueTwo, valueThree) => {
   )
 }
 ```
+And after every new values we check if the algorithm below is verified :
 \
 ![00](https://user-images.githubusercontent.com/72947119/163849344-dbf56e56-cebd-47c6-8fab-45f767ca21cc.PNG)
+\
+we chose as threshold 19.6 for 'A' and 55 for 'Teta'
+```tsx
+ if (data.teta > 55 && data.a > 19.6) {
+        fallStatus.current = true
+ }
+```
+Finally we define a variable called handleAcceleration where we gonna store all previous value of Acceleration and Angle and which we use to plot the graphe .
+```tsx
+ const handleAcceleration = useRef([])
+```
+
+
 
